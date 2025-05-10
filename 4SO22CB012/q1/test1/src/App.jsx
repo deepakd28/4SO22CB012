@@ -1,33 +1,26 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+const URL = 'http://20.244.56.144/evaluation-service/stocks'
+const auth = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJNYXBDbGFpbXMiOnsiZXhwIjoxNzQ2ODczODM5LCJpYXQiOjE3NDY4NzM1MzksImlzcyI6IkFmZm9yZG1lZCIsImp0aSI6ImE2MmYxNjliLWRjMTMtNDY1Mi1hNGE4LWJlZGE4NGE0MzMyOSIsInN1YiI6IjIyazEyLmRlZXBha0BzamVjLmFjLmluIn0sImVtYWlsIjoiMjJrMTIuZGVlcGFrQHNqZWMuYWMuaW4iLCJuYW1lIjoiZGVlcGFrIiwicm9sbE5vIjoiNHNvMjJjMDEyIiwiYWNjZXNzQ29kZSI6IktqSkF4UCIsImNsaWVudElEIjoiYTYyZjE2OWItZGMxMy00NjUyLWE0YTgtYmVkYTg0YTQzMzI5IiwiY2xpZW50U2VjcmV0IjoiVGtHQXhxQnlBYVJ0dmtGZyJ9.9-3tKfDTz-0Wij24OTNPwfiuV05B88qHkdP6nUclku4'
+
+
+const fetchdata =()=>{
+  const response =  fetch(
+        `${URL}?auth=${auth}`
+      );
+
+  const data = response.json();
+  console.log(data);
+}
+
+
 function App() {
-  const [count, setCount] = useState(0)
+fetchdata();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <>  
+    
     </>
   )
 }
